@@ -39,5 +39,29 @@ void compter_accidents (pAccident a, int tab_stat[], int * acc){
     compter_accidents(a->fd, tab_stat);
 }
 
-void compter_severity (Victime* v, 
+void compter_gravite(Victime* v, Statistiques* stats) {
+
+    while (v != NULL) {
+
+        switch (v->severity) {
+
+            case 1:
+                stats->indemnes++;
+                break;
+
+            case 2:
+                stats->morts++;
+                break;
+
+            case 3:
+                stats->blesses_graves++;
+                break;
+
+            case 4:
+                stats->blesses_legers++;
+                break;
+        }
+
+        v = v->suivant;
+    }
 }
