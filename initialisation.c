@@ -26,29 +26,10 @@ int indiceAnnee (int year){                    //transforme une annee en positio
 	return year - 2005; 
 }
 
-int nb_Accident(pAccident a, int* acc){
-    exit_if_null_pointer(a);
-    return *acc++;
+void compter_accidents (pAccident a, int * acc){
+	exit_if_null_pointer(a);
+	(*acc)++; // Incrémente le nombre d 'accidents
+	compter_accidents(a->fg, acc);
+	compter_accidents(a->fd, acc);
 }
 
-void Parcours_arbre_accident(pAccident a, int* acc){
-    exit_if_null_pointer(a);
-    nb_Accident(a, acc);
-    Parcours_arbre_accident(a->fg, acc);
-    Parcours_arbre_accident(a->fd, acc);
-}
-
-*//pAccident perambulate_accident ( pAccident A){
-	pAccident A = malloc(sizeof(accident)); 
-	if (A = NULL){
-		return NULL; 
-	}
-
-
-	while( A->fg != NULL){
-		if()
-
-		}
-
-		A= A->fg; 
-*//
