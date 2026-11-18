@@ -33,8 +33,9 @@ void compter_accidents (pAccident a, int * acc){
 	compter_accidents(a->fd, acc);
 }
 
-void compter_accidents (pAccident a, int * acc){
+void compter_severity (pAccident a, int * acc){
 	exit_if_null_pointer(a);
-	compter_accidents(a->fg, acc);
-	compter_accidents(a->fd, acc);
+	(*acc)++;
+	compter_severity(a->fg->tete_vehicule->victime->severity, acc);
+	compter_severity(a->fd->tete_vehicule->victime->severity, acc);
 }
