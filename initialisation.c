@@ -30,18 +30,14 @@ void compter_accidents (pAccident a, int tab_stat[], int * acc){
 	exit_if_null_pointer(a);
 
 	for(int i =; i< SIZE, i++){
-	(*acc)++; // Incrémente le nombre d 'accidents
+	(*acc)++; 											// Incrémente le nombre d 'accidents
 	
-	compter_accidents(tab_stat[i], a->fg, acc);
+	compter_accidents(a->fg, tab_stat[i],acc);
 	
-	compter_accidents(tab_stat[i], a->fd, acc);
+	compter_accidents( a->fd, tab_stat[i], acc);
 
 	}
 }
 
-void compter_severity (pAccident a, int * acc){
-	exit_if_null_pointer(a);
-	(*acc)++;
-	compter_severity(a->fg->tete_vehicule->victime->severity, acc);
-	compter_severity(a->fd->tete_vehicule->victime->severity, acc);
+void compter_severity (Victime* v, 
 }
