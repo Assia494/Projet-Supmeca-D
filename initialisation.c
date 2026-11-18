@@ -33,3 +33,8 @@ void compter_accidents (pAccident a, int * acc){
 	compter_accidents(a->fd, acc);
 }
 
+void compter_accidents (pAccident a, int * acc){
+	exit_if_null_pointer(a);
+	compter_accidents(a->fg, acc);
+	compter_accidents(a->fd, acc);
+}
