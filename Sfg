@@ -1,1 +1,36 @@
-fkjhj'
+typedef struct  {
+
+    int year;
+    int collision_id;
+
+} year_collision_id;
+
+typedef struct victime{
+
+    int user_type;
+    int severity;
+    int gender;
+    int birth_year;
+    int location;
+    struct victime* suivant;
+
+} Victime;
+
+
+typedef struct vehicule{
+
+    int vehicule_id;
+    int purpose;
+    struct vehicule* suivant;
+    Victime* victime;
+
+} Vehicule;
+
+typedef struct accident{
+
+    year_collision_id cle;
+    struct accident* fg;
+    struct accident* fd;
+    Vehicule* tete_vehicule;
+
+} Accident, *pAccident;
