@@ -1,17 +1,17 @@
 
 void exit_if_null_pointer(void* pointer) {                              // utile pour apres un malloc 
 	if(pointer == NULL) {
-		printf("pointeur nul\n");
+		printf("pointer nul\n");
 		exit(1);
 	}
 }
 
-int verif_annee(int nb,int y1,int y2) {                                   
+int verif_year(int nb,int y1,int y2) {                                   
 	return (y1<=nb)&&(nb<=y2);                                         // 1 si verifié et 0 sinon
 }
 
 
-int* cree_tab(int size) { 
+int* cree_tab_year(int size) { 
 
     int* tab_stat= NULL;
     tab_stat = malloc(size * sizeof(int));
@@ -25,4 +25,3 @@ int* cree_tab(int size) {
 }
 
 
-indiceAnnee (à
