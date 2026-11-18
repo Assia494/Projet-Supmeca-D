@@ -26,11 +26,17 @@ int indiceAnnee (int year){                    //transforme une annee en positio
 	return year - 2005; 
 }
 
-void compter_accidents (pAccident a, int * acc){
+void compter_accidents (pAccident a, int tab_stat[], int * acc){
 	exit_if_null_pointer(a);
+
+	for(int i =; i< SIZE, i++){
 	(*acc)++; // Incrémente le nombre d 'accidents
-	compter_accidents(a->fg, acc);
-	compter_accidents(a->fd, acc);
+	
+	compter_accidents(tab_stat[i], a->fg, acc);
+	
+	compter_accidents(tab_stat[i], a->fd, acc);
+
+	}
 }
 
 void compter_severity (pAccident a, int * acc){
