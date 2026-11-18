@@ -13,9 +13,7 @@ int verif_year(int nb,int y1,int y2) {
 
 int* cree_tab_year(int size) { 
 
-    int* tab_stat= NULL;
-    tab_stat = malloc(size * sizeof(int));
-    exit_if_null_pointer(tab_stat);
+	int tab_stat[size] = {0} ; 
 
     for (int i = 0; i < size; i++) {
         tab_stat[i] = 0;
