@@ -7,6 +7,28 @@ typedef struct  {
 
 } year_collision_id;
 
+typedef enum { INDEMNE = 1, TUE = 2, BLESSE_GRAVE = 3, BLESSE_LEGER = 4} Severity;
+
+typedef enum { MASCULIN = 1, FEMININ = 2}Genre;
+
+typedef enum { NON_RENSEIGNE = 0, DOMICILE_TRAVAIL = 1, DOMICILE_ECOLE =2, COURSES = 3, DEPLACEMENT_PRO = 4, LOISIRS = 5, AUTRES =6} PURPOSE;
+
+typedef enum { CONDUCTEUR = 1, PASSAGER = 2, PIETON = 3} USER_TYPE;
+
+typedef enum { CONDUCTEUR_LOCATION = 1, PASSAGER_AVANT = 2, PIETON_LOCATION = 10}LOCATION;
+
+PURPOSE convertPurpose(int valeur) {
+    if (valeur >= AUTRES) {
+        return AUTRES; // Toute valeur >= 6 est ramenée à 6
+    }
+    if(valeur<=NON_RENSEIGNE){
+    return NON_RENSEIGNE;
+    }
+    return (Purpose)valeur;
+}
+
+
+
 typedef struct victime{
 
     int user_type;
@@ -36,3 +58,5 @@ typedef struct accident{
     Vehicule* tete_vehicule;
 
 } Accident, *pAccident;
+
+
