@@ -25,7 +25,7 @@ int lire_ligne_csv(FILE *fichier, LigneCSV *donnees) {
     }
 
     /* Supprime le retour à la ligne (\n ou \r\n) en fin de chaîne */
-    buffer[strcspn(buffer, "\r\n")] = '\0';
+    buffer[strcspn(buffer, "\n")] = '\0';
 
     /* Ignore les lignes vides éventuelles */
     if (buffer[0] == '\0') {
