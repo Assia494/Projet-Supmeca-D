@@ -116,6 +116,11 @@ int lire_ligne_csv(FILE *fichier, LigneCSV *donnees) {
     return 1;
 }
 
+int calcul_age(){
+    
+
+}
+
 
 
 
