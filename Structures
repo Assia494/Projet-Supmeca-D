@@ -53,8 +53,8 @@ typedef struct accident{
 
 typedef struct {
     int year;
-    char collision_id[TAILLE_ID_MAX];
-    char vehicle_id[TAILLE_ID_MAX];
+    int collision_id;
+    int vehicle_id;
     int location;
     int user_type;
     int severity;
@@ -64,5 +64,5 @@ typedef struct {
 } LigneCSV;
 
 int calcul_age(Victime *v){
-    
+    v->birth_year
 }
