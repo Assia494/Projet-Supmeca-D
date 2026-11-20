@@ -1,4 +1,3 @@
-Fonctions à faire :
-
-FILE *ouvrirFichier
-lire ligne csv
+Cela répond directement à l'exigence de robustesse et d'arrêt avec un message d'erreur explicite en cas de problème détecté.
+ * Si vous ajoutez des modes bonus plus tard (comme PLACE_DU_MORT), vous pourrez simplement ajouter une condition strcmp(argv[1], "PLACE_DU_MORT") != 0 ici.
+On passe à la suite : quel mode voulez-vous développer en premier (YEAR_DATA, AGE_DATA ou CRASH_DATA) ?
