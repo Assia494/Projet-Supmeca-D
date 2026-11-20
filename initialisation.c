@@ -11,6 +11,18 @@ int verif_year(int nb,int y1,int y2) {
 }
 
 
+
+PURPOSE convertPurpose(int valeur) {
+    if (valeur >= AUTRES) {
+        return AUTRES; // Toute valeur >= 6 est ramenée à 6
+    }
+    if(valeur<=NON_RENSEIGNE){
+    return NON_RENSEIGNE;
+    }
+    return (Purpose)valeur;
+}
+
+
 int* cree_tab_year(int size) { 
 
 	int tab_stat[size] = {0} ; 
