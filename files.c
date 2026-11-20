@@ -32,9 +32,9 @@ int lire_ligne_csv(FILE *fichier, LigneCSV *donnees) {
         return lire_ligne_csv(fichier, donnees);
     }
 
-    /* Découpage des 9 champs séparés par ';' */
-    char *champ;
-    char *courant = buffer;
+    /* Découpage des 9 debut_colonne séparés par ';' */
+    char *debut_colonne;                                                          // pointe sur le debut de la colonne en cours de lecture
+    char *courant = buffer;                                               // avance dans buffer au fur et à meusure qu'on decope les points virgules
     int index_colonne = 0;
 
     /* Initialisation par défaut */
@@ -49,53 +49,63 @@ int lire_ligne_csv(FILE *fichier, LigneCSV *donnees) {
     donnees->purpose = -1;
 
     while (index_colonne < 9) {
-        champ = courant;
+        debut_colonne = courant;
         char *point_virgule = strchr(courant, ';');
 
         if (point_virgule != NULL) {
             *point_virgule = '\0';
             courant = point_virgule + 1;
-        } else if (index_colonne < 8) {
+        } 
+        
+        else if (index_colonne < 8) {
             /* Moins de 9 colonnes trouvées sur la ligne */
             return -1;
-        } else {
+        } 
+        
+        else {
             courant = NULL;
         }
 
-        /* Retire d'éventuels espaces en début de champ (ex: " A01") */
-        while (*champ == ' ' || *champ == '\t') {
-            champ++;
+        /* Retire d'éventuels espaces en début de debut_colonne (ex: " A01") */
+        while (*debut_colonne == ' ' || *debut_colonne == '\t') {
+            debut_colonne++;
         }
 
         switch (index_colonne) {
             case 0:
-                donnees->year = atoi(champ);                               //atoi -> convertit une chaîne de caractères en un entier de type int
+                donnees->year = atoi(debut_colonne);                               //atoi -> convertit une chaîne de caractères en un entier de type int
                 break;
             case 1:
-                strncpy(donnees->collision_id, champ, TAILLE_ID_MAX - 1);
+                strncpy(donnees->collision_id, debut_colonne, TAILLE_ID_MAX - 1);
                 donnees->collision_id[TAILLE_ID_MAX - 1] = '\0';
                 break;
             case 2:
-                strncpy(donnees->vehicle_id, champ, TAILLE_ID_MAX - 1);
+                strncpy(donnees->vehicle_id, debut_colonne, TAILLE_ID_MAX - 1);
                 donnees->vehicle_id[TAILLE_ID_MAX - 1] = '\0';
                 break;
             case 3:
-                donnees->location = atoi(champ);
+                donnees->location = atoi(debut_colonne);
                 break;
             case 4:
-                donnees->user_type = atoi(champ);
+                donnees->user_type = atoi(debut_colonne);
                 break;
             case 5:
-                donnees->severity = atoi(champ);
+                donnees->severity = atoi(debut_colonne);
                 break;
             case 6:
-                donnees->gender = atoi(champ);
+                donnees->gender = atoi(debut_colonne);
                 break;
             case 7:
-                donnees->birth_year = atoi(champ);
+                donnees->birth_year = atoi(debut_colonne);
                 break;
             case 8:
-                donnees->purpose = (*champ == '\0') ? -1 : atoi(champ);
+                if(*debut_colonne == '\0'){
+                    donnees->purpose = -1;
+                }
+
+                else{
+                    donnees->purpose = atoi(debut_colonne);
+                }
                 break;
         }
 
@@ -103,7 +113,6 @@ int lire_ligne_csv(FILE *fichier, LigneCSV *donnees) {
     }
 
     return 1;
-}
 }
 
 
