@@ -12,7 +12,22 @@ FILE* openFile( const char* cy_crash_https://github.com/Assia494/Projet-Supmeca-
     return fichier; 
 }
 
+int verifier_arguments(int argc, char **argv) {
+    if (argc != 3 || argv[1] == NULL || argv[2] == NULL) {
+        fprintf(stderr, "Erreur : arguments manquants ou en trop.\n");
+        fprintf(stderr, "Utilisation : %s <YEAR_DATA|AGE_DATA|CRASH_DATA> <fichier.csv>\n",
+                (argc > 0 && argv[0] != NULL) ? argv[0] : "./crashTech");
+        return 0;
+    }
 
+    if (strcmp(argv[1], "YEAR_DATA") != 0 && strcmp(argv[1], "AGE_DATA") != 0 && strcmp(argv[1], "CRASH_DATA") != 0) {
+        fprintf(stderr, "Erreur : mode inconnu '%s'.\n", argv[1]);
+        fprintf(stderr, "Modes disponibles : YEAR_DATA, AGE_DATA, CRASH_DATA.\n");
+        return 0;
+    }
+
+    return 1;
+}
     
 int lire_ligne_csv(FILE *fichier, LigneCSV *donnees) {
     char buffer[TAILLE_LIGNE_MAX];
