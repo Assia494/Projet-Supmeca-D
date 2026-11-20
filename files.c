@@ -8,7 +8,8 @@ FILE* openFile( const char* cy_crash_https://github.com/Assia494/Projet-Supmeca-
       printf("Message d'erreur = %s \n", strerror(errno) );
       exit(1);
     }
-return fichier; 
+
+    return fichier; 
 }
 
 
