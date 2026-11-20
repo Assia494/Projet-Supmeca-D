@@ -129,11 +129,11 @@ int lire_ligne_csv(FILE *fichier, LigneCSV *donnees) {
     return 1;
 }
 
-int calcul_age(){
-    
+void viderbuffer(){
+    int c;
 
+    while((c = getchar()) != '\n' && c != EOF);                            //instruction vide : on ignore simplement chaque caractère lu
 }
-
 
 
 
