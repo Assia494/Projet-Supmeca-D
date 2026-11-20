@@ -10,7 +10,11 @@ int verif_year(int nb,int y1,int y2) {
 	return (y1<=nb)&&(nb<=y2);                                         // 1 si verifié et 0 sinon
 }
 
-
+int calcul_age(Victime *v, year_collision_id *annee_col){
+    exit_if_null_pointer(v);
+    exit_if_null_pointer(annee_col);
+    return annee_col - v->birth_year;
+}
 
 PURPOSE convertPurpose(int valeur) {
     if (valeur >= AUTRES) {
@@ -76,10 +80,4 @@ void compter_gravite(Victime* v, Statistiques* stats) {
 
         v = v->suivant;
     }
-}
-
-int calcul_age(Victime *v, year_collision_id *annee_col){
-    exit_if_null_pointer(v);
-    exit_if_null_pointer(annee_col);
-    return annee_col - v->birth_year;
 }
