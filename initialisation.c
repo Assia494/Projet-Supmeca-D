@@ -81,3 +81,12 @@ void compter_gravite(Victime* v, Statistiques* stats) {
         v = v->suivant;
     }
 }
+
+void affiche_stat(int stat_annee_tab[], int annee){   //FONCTION A VERIFIER tant que on l indice ne correspond pas a l indice de l annee pris en parametre on continue de parcourri de tableau et quand ca retrouve on s arrete 
+	if(verif_year(annee, 2005, 2024))
+    int i =0;
+	while{indice_annee(annee)!= i){
+    stat_annee_tab[i++]
+    
+	}
+		
