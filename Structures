@@ -1,4 +1,6 @@
 #define SIZE 20
+#define TAILLE_LIGNE_MAX 512
+#define TAILLE_ID_MAX 32
 
 typedef struct  {
 
