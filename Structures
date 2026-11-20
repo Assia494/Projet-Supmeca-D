@@ -63,3 +63,6 @@ typedef struct {
     int purpose;
 } LigneCSV;
 
+int calcul_age(Victime *v){
+    
+}
