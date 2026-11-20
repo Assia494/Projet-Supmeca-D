@@ -77,12 +77,10 @@ int lire_ligne_csv(FILE *fichier, LigneCSV *donnees) {
                 donnees->year = atoi(debut_colonne);                               //atoi -> convertit une chaîne de caractères en un entier de type int
                 break;
             case 1:
-                strncpy(donnees->collision_id, debut_colonne, TAILLE_ID_MAX - 1);
-                donnees->collision_id[TAILLE_ID_MAX - 1] = '\0';
+                donnees->collision_id = atoi(debut_colonne);
                 break;
             case 2:
-                strncpy(donnees->vehicle_id, debut_colonne, TAILLE_ID_MAX - 1);
-                donnees->vehicle_id[TAILLE_ID_MAX - 1] = '\0';
+                donnees->vehicle_id = atoi(debut_colonne);
                 break;
             case 3:
                 donnees->location = atoi(debut_colonne);
