@@ -1,4 +1,6 @@
 #define SIZE 20
+#define TAILLE_LIGNE_MAX 512
+#define TAILLE_ID_MAX 32
 
 typedef struct  {
 
@@ -18,20 +20,6 @@ typedef enum { NON_RENSEIGNE = 0, DOMICILE_TRAVAIL = 1, DOMICILE_ECOLE =2, COURS
 typedef enum { CONDUCTEUR = 1, PASSAGER = 2, PIETON = 3} USER_TYPE;
 
 typedef enum { CONDUCTEUR_LOCATION = 1, PASSAGER_AVANT = 2, PIETON_LOCATION = 10}LOCATION;
-
-
-
-PURPOSE convertPurpose(int valeur) {
-    if (valeur >= AUTRES) {
-        return AUTRES; // Toute valeur >= 6 est ramenée à 6
-    }
-    if(valeur<=NON_RENSEIGNE){
-    return NON_RENSEIGNE;
-    }
-    return (Purpose)valeur;
-}
-
-
 
 typedef struct victime{
 
@@ -63,4 +51,15 @@ typedef struct accident{
 
 } Accident, *pAccident;
 
+typedef struct {
+    int year;
+    char collision_id[TAILLE_ID_MAX];
+    char vehicle_id[TAILLE_ID_MAX];
+    int location;
+    int user_type;
+    int severity;
+    int gender;
+    int birth_year;
+    int purpose;
+} LigneCSV;
 
