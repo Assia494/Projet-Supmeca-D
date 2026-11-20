@@ -63,6 +63,7 @@ typedef struct {
     int purpose;
 } LigneCSV;
 
-int calcul_age(Victime *v){
-    v->birth_year
+int calcul_age(Victime *v, year_collision_id *annee_col){
+    
+    return annee_col - v->birth_year;
 }
