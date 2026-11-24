@@ -10,6 +10,21 @@ int verif_year(int nb,int y1,int y2) {
 	return (y1<=nb)&&(nb<=y2);                                         // 1 si verifié et 0 sinon
 }
 
+
+int* cree_tab_year(int size) { 
+
+	int tab_stat[size] = {0} ; 
+
+    for (int i = 0; i < size; i++) {
+        tab_stat[i] = 0;
+    }
+
+    return tab_stat;
+}
+
+	return vic;
+}
+
 int* cree_tab_year(int size) { 
 
 	int tab_stat[size] = {0} ; 
