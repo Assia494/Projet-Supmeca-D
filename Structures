@@ -71,3 +71,13 @@ typedef struct {
     int birth_year;
     int purpose;
 } LigneCSV;
+
+
+
+typedef struct {
+    int nb_accidents;
+    int indemnes;
+    int morts;
+    int blesses_graves;
+    int blesses_legers;
+} StatAnnee;
