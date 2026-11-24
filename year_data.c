@@ -44,8 +44,7 @@ void charger_year_data(const char *chemin_csv, StatAnnee tab[20]) {
 
         for (int i = 0; i < nb_vus; i++) {
 
-            if (accidents_vus[i].year == ligne.year &&
-                accidents_vus[i].collision_id == ligne.collision_id) {
+            if (accidents_vus[i].year == ligne.year && accidents_vus[i].collision_id == ligne.collision_id) {
 
                 deja_compte = 1;
                 break;
