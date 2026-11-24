@@ -1,19 +1,4 @@
 
-int* cree_tab_year(int size) { 
-
-	int tab_stat[size] = {0} ; 
-
-    for (int i = 0; i < size; i++) {
-        tab_stat[i] = 0;
-    }
-
-    return tab_stat;
-}
-
-	return vic;
-}
-
-
 
 Victime* creer_victime(LigneCSV ligne){
     Victime* v = malloc(sizeof(Victime));
