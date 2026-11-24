@@ -49,19 +49,14 @@ Chainon_age* inserer_ou_maj_age(Chainon_age *tete, LigneCSV ligne) {
 
 
     /* Mise a jour des compteurs (indices proteges contre les valeurs hors limites) */
-    if (ligne.gender == MASCULIN || ligne.gender == FEMININ) {
-        courant->compteurs_genre[ligne.gender]++;
+        if ((ligne.gender == MASCULIN || ligne.gender == FEMININ) && (ligne.user_type >= CONDUCTEUR && ligne.user_type <= PIETON)) {
+       		 courant->compteurs[ligne.gender][ligne.user_type]++ ;
     }
-
-    if (ligne.user_type >= CONDUCTEUR && ligne.user_type <= PIETON) {
-        courant->compteur_usager[ligne.user_type]++;
-    }
-
     return tete;
 }
 
 
-NoeudAge* charger_age_data(const char *chemin_csv) {
+Chainon_age* charger_age_data(const char *chemin_csv) {
     FILE *fichier = openFile(chemin_csv);      /* quitte le programme si echec */
     Chainon_age *tete = NULL;
     LigneCSV ligne;
