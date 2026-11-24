@@ -102,3 +102,30 @@ void charger_year_data(const char *chemin_csv, StatAnnee tab[20]) {
 
     fclose(fichier);
 }
+
+
+
+void afficher_stats_annee(StatAnnee tab[20], int annee)
+{
+    if (!verif_year(annee, 2005, 2024))
+    {
+        printf("Annee invalide.\n");
+        return;
+    }
+
+    int indice = indiceAnnee(annee);
+
+    printf("\n**********STATISTIQUES DE L'ANNEE %d **********\n", annee);
+
+    printf("Nombre d'accidents : %d\n", tab[indice].nb_accidents);
+
+    printf("Nombre d'usagers indemnes : %d\n", tab[indice].indemnes);
+
+    printf("Nombre de personnes tuees : %d\n", tab[indice].morts);
+
+    printf("Nombre de blesses graves : %d\n", tab[indice].blesses_graves);
+
+    printf("Nombre de blesses legers : %d\n", tab[indice].blesses_legers);
+
+    printf("**************************************************\n");
+}
