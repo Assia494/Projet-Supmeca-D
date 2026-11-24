@@ -151,3 +151,13 @@ Chainon_age *nouveau = malloc(sizeof(Chainon_age));
 	return nouveau;
 }
 
+void liberer_liste_ages (Chainon_age* tete){
+    Chainon_age courant = tete;
+	Chainon_age* suivant = NULL;
+
+	while(courant != NULL){
+        suivant = courant->suivant;
+		free(courant);
+		courant = suivant;
+	}
+}
