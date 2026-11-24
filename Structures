@@ -55,8 +55,7 @@ typedef struct accident{
 
 typedef struct chainon_age {
     int age;
-    int compteurs_genre[3];
-    int compteur_usager[5];
+    int compteurs[3][5];
     struct chainon_age* suivant;
 } Chainon_age;
 
