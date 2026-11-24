@@ -57,7 +57,7 @@ typedef struct chainon_age {
     int age;
     int compteurs_genre[3];
     int compteur_usager[5];
-    struct noeud_age* suivant;
+    struct chainon_age* suivant;
 } Chainon_age;
 
 typedef struct {
