@@ -3,8 +3,12 @@ Chainon_age *creer_chainon_age(int age){
 Chainon_age *nouveau = malloc(sizeof(Chainon_age));
 	exit_if_null_pointer(nouveau);
 	nouveau->age = age;
-	memset(nouveau->compteurs_genre, 0, sizeof(nouveau->compteurs_genre));
-	memset(nouveau->compteur_usager, 0, sizeof(nouveau->compteur_usager));
+	for (int i = 0; i < 3; i++) {
+    	 for (int j = 0; j < 5; j++) {
+       	 	n->compteurs[i][j] = 0;
+   		 }
+    }
+    n->suivant = NULL;
 	nouveau->suivant = NULL;
 	return nouveau;
 }
