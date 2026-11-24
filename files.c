@@ -136,8 +136,11 @@ void viderbuffer(){
 }
 
 
-
-
+int calcul_age(Victime *v, year_collision_id *annee_col){
+    exit_if_null_pointer(v);
+    exit_if_null_pointer(annee_col);
+    return annee_col - v->birth_year;
+}
 
 
 
