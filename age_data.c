@@ -38,7 +38,7 @@ Chainon_age* inserer_ou_maj_age(Chainon_age *tete, LigneCSV ligne) {
 
     /* Age absent de la liste : on cree un maillon et on l'insere a cette position */
     if (*ptete == NULL || (*ptete)->age != age) {
-        Chainon_age *nouveau = creer_noeud_age(age);
+        Chainon_age *nouveau = creer_chainon_age(age);
         nouveau->suivant = *ptete;
         *ptete = nouveau;
     }
