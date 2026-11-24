@@ -22,8 +22,8 @@ void liberer_liste_ages (Chainon_age* tete){
 
 Chainon_age* inserer_ou_maj_age(Chainon_age *tete, LigneCSV ligne) {
     int age = calculer_age(ligne.year, ligne.birth_year);
-	Chainon_age **p = &tete;
-	Chainon_age *courant = *p;
+	Chainon_age **ptete = &tete;
+	Chainon_age *courant = *ptete ;
 
     /* Donnee incoherente (annee de naissance apres l'accident, etc.) : on ignore */
     if (age < 0) {
@@ -32,15 +32,15 @@ Chainon_age* inserer_ou_maj_age(Chainon_age *tete, LigneCSV ligne) {
 
     /* Recherche de la position : on avance tant que l'age du maillon est plus petit */
     
-    while (*p != NULL && (*p)->age < age) {
-        p = &(*p)->suivant;
+    while (*ptete != NULL && (*ptete)->age < age) {
+        ptete = &(*ptete)->suivant;
     }
 
     /* Age absent de la liste : on cree un maillon et on l'insere a cette position */
-    if (*p == NULL || (*p)->age != age) {
+    if (*ptete == NULL || (*ptete)->age != age) {
         Chainon_age *nouveau = creer_noeud_age(age);
-        nouveau->suivant = *p;
-        *p = nouveau;
+        nouveau->suivant = *ptete;
+        *ptete = nouveau;
     }
 
 
