@@ -129,3 +129,38 @@ void afficher_stats_annee(StatAnnee tab[20], int annee)
 
     printf("**************************************************\n");
 }
+
+
+
+
+void menu_year_data(StatAnnee tab[20]) {
+    int choix;
+    int continuer = 1;
+
+    while (continuer) {
+        printf("\n****** MENU YEAR_DATA ******\n");
+        printf("Entrez une annee entre 2005 et 2024\n");
+        printf("pour afficher ses statistiques.\n");
+        printf("Entrez 0 pour quitter.\n");
+        printf("Votre choix : ");
+
+        /* scanf renvoie 1 si un entier a bien ete lu */
+        if (scanf("%d", &choix) != 1) {
+            printf("Saisie invalide : veuillez entrer un nombre.\n");
+            vider_buffer();
+            continue;
+        }
+        vider_buffer();
+
+        if (choix == 0) {
+            printf("Fin du mode YEAR_DATA.\n");
+            continuer = 0;
+        }
+        else if (verif_year(choix, 2005, 2024)) {
+            afficher_stats_annee(tab, choix);
+        }
+        else {
+            printf("Annee invalide : elle doit etre comprise entre 2005 et 2024.\n");
+        }
+    }
+}
