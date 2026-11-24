@@ -56,3 +56,28 @@ Chainon_age* inserer_ou_maj_age(Chainon_age *tete, LigneCSV ligne) {
     return tete;
 }
 
+
+NoeudAge* charger_age_data(const char *chemin_csv) {
+    FILE *fichier = openFile(chemin_csv);      /* quitte le programme si echec */
+    Chainon_age *tete = NULL;
+    LigneCSV ligne;
+    int resultat = 0;
+
+    while ((resultat = lire_ligne_csv(fichier, &ligne)) != 0) {
+
+        /* Ligne mal formee : on l'ignore et on continue */
+        if (resultat == -1) {
+            continue;
+        }
+
+        /* Ignore les lignes hors intervalle (dont l'en-tete, lu avec year = 0) */
+        if (!verif_year(ligne.year, 2005, 2024)) {
+            continue;
+        }
+
+        tete = inserer_ou_maj_age(tete, ligne);
+    }
+
+    fclose(fichier);
+    return tete;
+}
