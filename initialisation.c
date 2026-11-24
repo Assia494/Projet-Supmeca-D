@@ -89,4 +89,7 @@ void affiche_stat(int stat_annee_tab[], int annee){   //FONCTION A VERIFIER tant
     stat_annee_tab[i++]
     
 	}
-		
+
+Victime* creer_victime(LigneCSV ligne){
+    Victime* v = malloc(sizeof(Victime));
+}
