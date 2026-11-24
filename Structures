@@ -56,7 +56,7 @@ typedef struct accident{
 typedef struct {
     int year;
     int collision_id;
-    int vehicle_id;
+    int vehicule_id;
     int location;
     int user_type;
     int severity;
