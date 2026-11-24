@@ -124,3 +124,19 @@ Victime* ajouter_victime(Victime* tete, LigneCSV ligne){
 	return vic;
 }
 
+Vehicule* trouver_ajouter_vehicule(Vehicule **tete, LigneCSV ligne){
+	Vehicule *courant = *tete;
+	Vehicule *nouveau_vehicule=creer_vehicule(ligne.vehicule_id, ligne.purpose);
+	while(courant !=NULL){
+		if(courant->vehicule_id==0){
+			courant->victime=ajouter_victime(courant->victime, ligne);
+			return courant;
+		}
+		courant=courant->suivant;
+	}
+	nouveau_vehicule->victime=ajouter_victime(nouveau_vehicule->victime, ligne);
+	nouveau-vehicule->suivant =*tete;
+	*tete =nouveau_vehicule;
+	return nouveau_vehicule;
+}
+
