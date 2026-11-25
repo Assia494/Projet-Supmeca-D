@@ -217,8 +217,27 @@ void afficher_details_accident(Noeud_AVL* noeud,  unsign long long  cle){
 }
 
 
-void liberer_vehicule(){
-    
+void liberer_victime(Victime** tete){
+    Victime* courant = tete;
+	Victime* suivant = NULL;
+
+	while(courant != NULL){
+        suivant = courant->suivant;
+		free(courant);
+		courant = suivant;
+	}
+}
+
+void liberer_vehicule(Vehicule** tete){
+    Vehicule* courant = tete;
+	Vehicule* suivant = NULL;
+
+	while(courant != NULL){
+        suivant = courant->suivant;
+		liberer_victimes(courant->vehicule);
+		free(courant);
+		courant = suivant;
+	}
 }
 
 void liberer_AVL (Noeud_AVL* noeud){
