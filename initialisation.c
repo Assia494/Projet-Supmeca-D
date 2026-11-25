@@ -30,6 +30,14 @@ int min_val_2(int a, int b){
 	}    
 }
 
+int max_val_3(int a, int b, int c){
+    
+}
+
+int min_val_3(int a, int b, int c){
+    
+}
+
 int* cree_tab_year(int size) { 
 
 	int tab_stat[size] = {0} ; 
