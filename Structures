@@ -72,7 +72,13 @@ typedef struct {
     int purpose;
 } LigneCSV;
 
-
+typedef struct noeud_AVL {
+    
+    Vehicule* vehicule;
+    int hauteur;
+    struct Noeud_AVL* fg;
+    struct Noeud_AVL* fd;
+} Noeud_AVL;
 
 typedef struct {
     int nb_accidents;
