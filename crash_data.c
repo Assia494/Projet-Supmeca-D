@@ -53,7 +53,7 @@ Vehicule* trouver_ajouter_vehicule(Vehicule **tete, LigneCSV ligne){
 	return nouveau_vehicule;
 }
 
-int hauteur_avl(Noeud_AVL* noeud){
+int hauteur_AVL(Noeud_AVL* noeud){
     exit_if_null_pointer(noeud);
 
 	return noeud->hauteur;
@@ -123,9 +123,9 @@ Noeud_AVL* creer_noeud_AVL(unsign long long cle, LigneCSV ligne){
 
 Noeud_AVL* insertion_AVL(Noeud_AVL* noeud, unsign long long  cle, LigneCSV ligne, int* hauteur){
     exit_if_null_pointer(hauteur);
+	int balance = 0;
 	
     if(noeud == NULL){
-        *hauteur = 1;
 		Noeud_AVL* nouveau = creer_noeud_AVL(cle);
 		nouveau->vehicule = trouver_ajouter_vehicule(&(nouveau->vehicule), ligne);
 		return nouveau;
@@ -133,7 +133,6 @@ Noeud_AVL* insertion_AVL(Noeud_AVL* noeud, unsign long long  cle, LigneCSV ligne
 
 	else if (cle < noeud->cle_accident){
         noeud->fg = insertion_AVL(noeud->fg, cle, ligne, hauteur);
-		*hauteur = - *hauteur;
 	}
 
 	else if (cle > noeud->cle_accident){
@@ -141,21 +140,29 @@ Noeud_AVL* insertion_AVL(Noeud_AVL* noeud, unsign long long  cle, LigneCSV ligne
 	}
 
 	else{
-        *hauteur = 0;
 		noeud->vehicule = trouver_ajouter_vehicule(&(nouveau->vehicule), ligne);
 		return noeud;
 	}
 
-	if(*hauteur != 0){
-        noeud->equilibre = noued->equilibre + *hauteur;
+	noeud_hauteur = 1 + max_val_2(hauteur_AVL(noeud->fg), hauteur_AVL(noeud->fd));
 
-		if(noeud->equilibre == 0){
-            *hauteur = 0;
-		}
+	balance = facteur_equilibre(noeud);
 
-		else{
-            *hauteur = 1;
-		}
+	if(balance > 1 && cle < noeud->gauche->cle){
+        return rotation_droite(noeud);
+	}
+
+	if(balance < -1 && cle < noeud->droit->cle){
+        return rotation_gauche(noeud);
+	}
+
+	if(balance > 1 && cle > noeud->gauche->cle){
+        return rotation_droite(noeud);
+	}
+
+	
+	if(balance < -1 && cle < noeud->droit->cle){
+        return rotation_gauche(noeud);
 	}
 
 	return noeud;
