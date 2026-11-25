@@ -106,3 +106,17 @@ Noeud_AVL* rotation_gauche(Noeud_AVL* noeud){
 
 	return noeud;
 }
+
+Noeud_AVL* creer_noeud_avl(unsign long long cle, LigneCSV ligne){
+    Noeud_AVL* nouveau_noeud = malloc(sizeof(Noeud_AVL));
+
+    exit_if_null_pointer(nouveau_noeud);
+
+    nouveau_noeud->cle_accidnt = cle;
+    nouveau_noeud->vehicule = ligne.vehicule;
+    nouveau_noeud->fg = NULL;
+    nouveau_noeud->fd = NULL;
+    nouveau_noeud->hauteur = 1;
+
+    return ;
+}
