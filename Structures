@@ -73,7 +73,7 @@ typedef struct {
 } LigneCSV;
 
 typedef struct noeud_AVL {
-    
+    unsigned long long cle_accident;
     Vehicule* vehicule;
     int hauteur;
     struct Noeud_AVL* fg;
