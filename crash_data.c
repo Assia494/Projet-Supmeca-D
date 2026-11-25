@@ -79,8 +79,8 @@ Noeud_AVL* rotation_droite(Noeud_AVL* noeud){
 	eq_noeud = noeud->equilibre;
 	eq_p = pivot->equilibre;
 
-	noeud->equilibre = eq_noeud - min_2(eq_p, 0) + 1;
-	pivot->equilibre = max_3(eq_noeud + 2, eq_noeud + eq_p + 2, eq_p + 1);
+	noeud->equilibre = eq_noeud - min_val_2(eq_p, 0) + 1;
+	pivot->equilibre = max_val_3(eq_noeud + 2, eq_noeud + eq_p + 2, eq_p + 1);
 	noeud = pivot;
 	
     return noeud;
