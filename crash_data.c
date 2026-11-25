@@ -66,7 +66,22 @@ int facteur_equilibre(Noeud_AVL* noeud){
 }
 
 Noeud_AVL* rotation_droite(Noeud_AVL* noeud){
-    Noeud_AVL* pivot;
+    exit_if_null_pointer(noeud);
+	
+    Noeud_AVL* pivot = NULL;
+	int eq_noeud = 0;
+	int eq_p = 0;
+
+	pivot = noeud->fg;
+	noeud->fg = pivot->fd;
+	pivot->fd = noeud;
+
+	eq_noeud = noeud->equilibre;
+	eq_p = pivot->equilibre;
+
+	noeud->equilibre = eq_noeud - min_2(eq_p, 0) + 1;
+	pivot->equilibre = max_3(eq_noeud + 2, eq_noeud + eq_p + 2, eq_p + 1);
+	noeud = pivot;
 	
     return noeud;
 }
