@@ -64,3 +64,9 @@ int facteur_equilibre(Noeud_AVL* noeud){
 	
     return hauteur_avl(noeud->fg) - hauteur_avl(noeud->fg);
 }
+
+Noeud_AVL* rotation_droite(Noeud_AVL* noeud){
+    Noeud_AVL* pivot;
+	
+    return noeud;
+}
