@@ -185,26 +185,33 @@ Noeud_AVL* rechercher_AVL(Noeud_AVL* noeud, unsign long long  cle){
 	}
 		
 	else if(cle < noeud->cle_accident){
-        return rechercher_AVL( noeud->fg, cle,);
+        return rechercher_AVL( noeud->fg, cle);
 	}
 
 	else if(cle > noeud->cle_accident){
-        return rechercher_AVL( noeud->fd, cle,);
+        return rechercher_AVL( noeud->fd, cle);
 	}
 	
-    return rechercher_AVL( noeud, cle,);
+    return rechercher_AVL( noeud, cle);
 }
 
 void afficher_details_accident(Noeud_AVL* noeud,  unsign long long  cle){
+    Noeud_AVL* noeud_recherche =  rechercher_AVL( noeud, cle);
+	Vehicule* courant_vehicule = noeud_recherche->vehicule;
+	
+	if(noeud_recherche ){
+        printf("Aucun accident trouvé pour la clé : %llu\n", cle);
+		return;
+	}
 
-	if(){
-        printf("Aucun accidnet trouvé pour la clé : %llu", noeud->cle_accident);
+	if(courant_vehicule == NULL){
+        printf("Aucun vehicule trouvé pour cette clé");
 	}
 	
      printf("\n ===============================");
 	 printf("\n      DETAILS DE L'ACCIDENT     ");
 	 printf("\n ===============================");
-	 printf("Cle de l'accident : %llu\n", noeud->cle_accident);
+	 printf("Cle de l'accident : %llu\n", noeud_recherche->cle_accident);
 
 	
 }
