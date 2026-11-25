@@ -53,6 +53,14 @@ Vehicule* trouver_ajouter_vehicule(Vehicule **tete, LigneCSV ligne){
 	return nouveau_vehicule;
 }
 
-int hauteur_avl(){
-    exit_if_null_pointer
+int hauteur_avl(Noeud_AVL* noeud){
+    exit_if_null_pointer(noeud);
+
+	return noeud->hauteur;
+}
+
+int facteur_equilibre(Noeud_AVL* noeud){
+     exit_if_null_pointer(noeud);
+	
+    return hauteur_avl(noeud->fg) - hauteur_avl(noeud->fg);
 }
