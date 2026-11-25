@@ -170,7 +170,5 @@ Noeud_AVL* insertion_AVL(Noeud_AVL* noeud, unsign long long  cle, LigneCSV ligne
 
 	noeud_hauteur = 1 + max_val_2(hauteur_AVL(noeud->fg), hauteur_AVL(noeud->fd));
 
-	return  equilibrer(Noeud_AVL* noeud, unsign long long  cle){
-
-	return noeud;
+	return  equilibrer(noeud, cle);
 }
