@@ -194,3 +194,12 @@ Noeud_AVL* rechercher_AVL(Noeud_AVL* noeud, unsign long long  cle){
 	
     return rechercher_AVL( noeud, cle,);
 }
+
+void afficher_details_accident(Noeud_AVL* noeud){
+     printf("\n ===============================");
+	 printf("\n      DETAILS DE L'ACCIDENT     ");
+	 printf("\n ===============================");
+	 printf("Cle de l'accident : %llu\n", noeud->cle_accident);
+
+	
+}
