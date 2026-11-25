@@ -121,9 +121,33 @@ Noeud_AVL* creer_noeud_AVL(unsign long long cle, LigneCSV ligne){
     return ;
 }
 
+Noeud_AVL* equilibrer(Noeud_AVL* noeud, unsign long long  cle){
+    int balance = facteur_equilibre(noeud);
+
+	if(balance > 1 && cle < noeud->gauche->cle){
+        return rotation_droite(noeud);
+	}
+
+	if(balance < -1 && cle < noeud->droit->cle){
+        return rotation_gauche(noeud);
+	}
+
+	if(balance > 1 && cle > noeud->gauche->cle){
+		noeud->fg = rotation_gauche(noeud->fg);
+        return rotation_droite(noeud);
+	}
+
+	
+	if(balance < -1 && cle < noeud->droit->cle){
+		noeud->fd = rotation_droit(noeud->fd);
+        return rotation_gauche(noeud);
+	}
+
+	return noeud;
+}
+
 Noeud_AVL* insertion_AVL(Noeud_AVL* noeud, unsign long long  cle, LigneCSV ligne, int* hauteur){
     exit_if_null_pointer(hauteur);
-	int balance = 0;
 	
     if(noeud == NULL){
 		Noeud_AVL* nouveau = creer_noeud_AVL(cle);
@@ -146,24 +170,7 @@ Noeud_AVL* insertion_AVL(Noeud_AVL* noeud, unsign long long  cle, LigneCSV ligne
 
 	noeud_hauteur = 1 + max_val_2(hauteur_AVL(noeud->fg), hauteur_AVL(noeud->fd));
 
-	balance = facteur_equilibre(noeud);
-
-	if(balance > 1 && cle < noeud->gauche->cle){
-        return rotation_droite(noeud);
-	}
-
-	if(balance < -1 && cle < noeud->droit->cle){
-        return rotation_gauche(noeud);
-	}
-
-	if(balance > 1 && cle > noeud->gauche->cle){
-        return rotation_droite(noeud);
-	}
-
-	
-	if(balance < -1 && cle < noeud->droit->cle){
-        return rotation_gauche(noeud);
-	}
+	return  equilibrer(Noeud_AVL* noeud, unsign long long  cle){
 
 	return noeud;
 }
