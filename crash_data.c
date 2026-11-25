@@ -113,10 +113,10 @@ Noeud_AVL* creer_noeud_avl(unsign long long cle, LigneCSV ligne){
     exit_if_null_pointer(nouveau_noeud);
 
     nouveau_noeud->cle_accidnt = cle;
-    nouveau_noeud->vehicule = ligne.vehicule;
+    nouveau_noeud->vehicule = ligne.vehicule_id;
+    nouveau_noeud->hauteur = 1;
     nouveau_noeud->fg = NULL;
     nouveau_noeud->fd = NULL;
-    nouveau_noeud->hauteur = 1;
 
     return ;
 }
