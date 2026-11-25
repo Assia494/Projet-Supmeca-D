@@ -107,7 +107,7 @@ Noeud_AVL* rotation_gauche(Noeud_AVL* noeud){
 	return noeud;
 }
 
-Noeud_AVL* creer_noeud_avl(unsign long long cle, LigneCSV ligne){
+Noeud_AVL* creer_noeud_AVL(unsign long long cle, LigneCSV ligne){
     Noeud_AVL* nouveau_noeud = malloc(sizeof(Noeud_AVL));
 
     exit_if_null_pointer(nouveau_noeud);
@@ -119,4 +119,44 @@ Noeud_AVL* creer_noeud_avl(unsign long long cle, LigneCSV ligne){
     nouveau_noeud->fd = NULL;
 
     return ;
+}
+
+Noeud_AVL* insertion_AVL(Noeud_AVL* noeud, unsign long long  cle, LigneCSV ligne, int* hauteur){
+    exit_if_null_pointer(hauteur);
+	
+    if(noeud == NULL){
+        *hauteur = 1;
+		Noeud_AVL* nouveau = creer_noeud_AVL(cle);
+		nouveau->vehicule = trouver_ajouter_vehicule(&(nouveau->vehicule), ligne);
+		return nouveau;
+	}
+
+	else if (cle < noeud->cle_accident){
+        noeud->fg = insertion_AVL(noeud->fg, cle, ligne, hauteur);
+		*hauteur = - *hauteur;
+	}
+
+	else if (cle > noeud->cle_accident){
+        noeud->fd = insertion_AVL(noeud->fd, cle, ligne, hauteur);
+	}
+
+	else{
+        *hauteur = 0;
+		noeud->vehicule = trouver_ajouter_vehicule(&(nouveau->vehicule), ligne);
+		return noeud;
+	}
+
+	if(*hauteur != 0){
+        noeud->equilibre = noued->equilibre + *hauteur;
+
+		if(noeud->equilibre == 0){
+            *hauteur = 0;
+		}
+
+		else{
+            *hauteur = 1;
+		}
+	}
+
+	return noeud;
 }
