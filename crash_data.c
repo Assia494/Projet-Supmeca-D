@@ -172,3 +172,25 @@ Noeud_AVL* insertion_AVL(Noeud_AVL* noeud, unsign long long  cle, LigneCSV ligne
 
 	return  equilibrer(noeud, cle);
 }
+
+Noeud_AVL* rechercher_AVL(Noeud_AVL* noeud, unsign long long  cle){
+	exit_if_null_pointer(noeud); 
+	
+	if(noeud->cle_accident == cle){
+        return noeud;
+	}
+
+    if(cle < noeud->cle_accident){
+        return noeud;
+	}
+		
+	else if(cle < noeud->cle_accident){
+        return rechercher_AVL( noeud->fg, cle,);
+	}
+
+	else if(cle > noeud->cle_accident){
+        return rechercher_AVL( noeud->fd, cle,);
+	}
+	
+    return rechercher_AVL( noeud, cle,);
+}
