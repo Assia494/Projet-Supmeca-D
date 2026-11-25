@@ -10,6 +10,15 @@ int verif_year(int nb,int y1,int y2) {
 	return (y1<=nb)&&(nb<=y2);                                         // 1 si verifié et 0 sinon
 }
 
+int max_val(int a, int b){
+    if(a > b){
+        return a;
+	}
+
+	else{
+        return b;
+	}
+}
 
 int* cree_tab_year(int size) { 
 
