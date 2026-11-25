@@ -215,3 +215,19 @@ void afficher_details_accident(Noeud_AVL* noeud,  unsign long long  cle){
 
 	
 }
+
+
+void liberer_vehicule(){
+    
+}
+
+void liberer_AVL (Noeud_AVL* noeud){
+    exit_if_null_pointer(noeud);
+	
+    liberer_AVL(noued->fg);
+	liberer_AVL(noued->fg);
+
+    liberer_vehicule(noeud->vehicule);
+	
+	free(noeud);
+}
