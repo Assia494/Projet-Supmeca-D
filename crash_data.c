@@ -85,3 +85,24 @@ Noeud_AVL* rotation_droite(Noeud_AVL* noeud){
 	
     return noeud;
 }
+
+Noeud_AVL* rotation_gauche(Noeud_AVL* noeud){
+	exit_if_null_pointer(noeud);
+
+	Noeud_AVL* pivot = NULL;
+	int eq_noeud = 0;
+	int eq_p = 0;
+
+	pivot = noeud->fd;
+	noeud->fd = pivot->fg;
+	pivot->fg = noeud;
+
+	eq_noeud = noeud->equilibre;
+	eq_p = pivot->equilibre;
+
+	noeud->equilibre = eq_noeud - max_val_2(eq_p, 0) - 1;
+	pivot->equilibre = min_val_3(eq_noeud - 2, eq_noeud + eq_p - 2, eq_p - 1);
+	noeud = pivot;
+
+	return noeud;
+}
