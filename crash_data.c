@@ -52,3 +52,7 @@ Vehicule* trouver_ajouter_vehicule(Vehicule **tete, LigneCSV ligne){
 	*tete =nouveau_vehicule;
 	return nouveau_vehicule;
 }
+
+int hauteur_avl(){
+    exit_if_null_pointer
+}
